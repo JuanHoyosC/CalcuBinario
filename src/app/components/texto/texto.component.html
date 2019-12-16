@@ -1,0 +1,53 @@
+<ng-container *ngIf = "mostrar">
+    <ng-container *ngIf="exito; else error">
+        <div class="alert alert-success text-center" role="alert">
+            {{alerta}}
+        </div>
+    </ng-container>
+
+    <ng-template #error>
+        <div class="alert alert-danger text-center" role="alert">
+            {{alerta}}
+        </div>
+    </ng-template>
+
+</ng-container>
+<div class="text-binario my-5 container">
+    <h3 class="text-center">Convertir de texto a binario</h3>
+    <div class="row text-dark">
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="texto-binario">Introduzca un texto</label>
+                <textarea class="form-control border-secondary" id="texto-binario" rows="5" style = "resize: none"></textarea>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="r-texto-binario">Resultado del texto en binario</label>
+                <textarea class="form-control border-secondary" id="r-texto-binario" rows="5"
+                    [disabled]="'true'" style = "resize: none"></textarea>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-dark" (click)="convertirTexto()">Convertir</button>
+</div>
+
+<div class="binario-texto my-5 container">
+    <h3 class="text-center">Convertir de binario a texto</h3>
+    <div class="row text-dark text-binario">
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="binario-texto">Introduzca un texto en binario</label>
+                <textarea class="form-control border-secondary" id="binario-texto" rows="5" style = "resize: none"></textarea>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="r-binario-texto">Resultado de la conversion</label>
+                <textarea class="form-control border-secondary" id="r-binario-texto" rows="5"
+                    [disabled]="'true'" style = "resize: none"></textarea>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-dark" (click)="convertirBinario()">Convertir</button>
+</div>

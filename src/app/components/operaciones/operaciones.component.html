@@ -1,0 +1,65 @@
+<ng-container *ngIf="mostrar">
+    <ng-container *ngIf="exito; else error">
+        <div class="alert alert-success text-center" role="alert">
+            {{alerta}}
+        </div>
+    </ng-container>
+
+    <ng-template #error>
+        <div class="alert alert-danger text-center" role="alert">
+            {{alerta}}
+        </div>
+    </ng-template>
+</ng-container>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                <label for="primer_numero">Digite el primer número</label>
+                <input type="text" class="form-control" id="primer_numero" placeholder="Primer Número">
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2">
+            <div class="form-group">
+                <label>Base</label>
+                <select class="form-control" [(ngModel)]="base">
+                    <option selected>Binario</option>
+                    <option>Octal</option>
+                    <option>Decimal</option>
+                    <option>Hexadecimal</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2">
+            <div class="form-group">
+                <label>Operación</label>
+                <select class="form-control" [(ngModel)]="seleccion">
+                    <option selected>Suma (+)</option>
+                    <option>Resta (-)</option>
+                    <option>División (/)</option>
+                    <option>Multiplicación (*)</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                <label for="segundo_numero">Digite el segundo número</label>
+                <input type="text" class="form-control" id="segundo_numero" placeholder="Segundo número">
+            </div>
+        </div>
+    </div>
+    <h6 class="text-info">Resultados</h6>
+    <div class="resultados row">
+        <div class="col-sm-6 col-md-3" *ngFor="let resultado of resultados; let i = index">
+            <div class="form-group">
+                <label>{{ outputResultados[i] }}</label>
+                <input type="text" class="form-control" [disabled]="'true'" [value]="resultado">
+            </div>
+        </div>
+
+    </div>
+    <button class="btn btn-dark my-3" (click)="calcular()">{{seleccion}}</button>
+</div>
+
+<app-ieee></app-ieee>

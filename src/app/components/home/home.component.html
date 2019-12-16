@@ -1,0 +1,108 @@
+
+<ng-container *ngIf = "mostrar">
+    <ng-container *ngIf="exito; else error">
+        <div class="alert alert-success text-center" role="alert">
+            {{alerta}}
+        </div>
+    </ng-container>
+
+    <ng-template #error>
+        <div class="alert alert-danger text-center" role="alert">
+            {{alerta}}
+        </div>
+    </ng-template>
+</ng-container>
+
+<div class="container my-5">
+    <div class="row">
+
+        <div class="col-sm-12 col-md-8 text-secondary">
+            <h3 class="text-center text-dark">Convertir de decimal a {{seleccion}}</h3>
+            <div>
+                <div class="form-group">
+                    <label for="decimal">Decimal</label>
+                    <input type="number" class="form-control" id="decimal" placeholder="Introduzca un número">
+                </div>
+
+                <div class="form-group">
+                    <label>Convertir a</label>
+                    <select class="form-control" [(ngModel)]="seleccion">
+                        <option selected>Binario</option>
+                        <option>Octal</option>
+                        <option>Hexadecimal</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="resultado1">Resultado</label>
+                    <input type="text" class="form-control" id="resultado1" placeholder="Resultado" [disabled]="'true'">
+                </div>
+                <button type="button" class="btn btn-dark" (click)="convertidor1()">Convertir</button>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4 my-5">
+            <img src="https://cdn.pixabay.com/photo/2017/09/08/09/12/ball-2728153_960_720.png"
+                alt="" width="100%">
+        </div>
+    </div>
+
+    <div class="row my-5">
+        <div class="col-sm-12 col-md-8 text-secondary">
+            <h3 class="text-center text-dark">Convertir de {{seleccion2}} a otras bases</h3>
+            <div>
+                <div class="form-group">
+                    <label for="base">Número en {{seleccion2}}</label>
+                    <input type="text" class="form-control" id="base" placeholder="Introduzca un número">
+                </div>
+
+                <div class="form-group">
+                    <label>Base original</label>
+                    <select class="form-control" [(ngModel)]="seleccion2">
+                        <option selected>Binario</option>
+                        <option>Octal</option>
+                        <option>Hexadecimal</option>
+                    </select>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="binario">Resultado en binario</label>
+                            <input type="text" class="form-control" id="binario" placeholder="Resultado"
+                                [disabled]="'true'">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="octal">Resultado en octal</label>
+                            <input type="text" class="form-control" id="octal" placeholder="Resultado"
+                                [disabled]="'true'">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="decimal2">Resultado en decimal</label>
+                            <input type="text" class="form-control" id="decimal2" placeholder="Resultado"
+                                [disabled]="'true'">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="hexadecimal">Resultado en hexadecimal</label>
+                            <input type="text" class="form-control" id="hexadecimal" placeholder="Resultado"
+                                [disabled]="'true'">
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-dark" (click)="convertidor2()">Convertir</button>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4 my-5">
+            <img src="https://www.wisc-online.com/assetrepository/getfile?id=171&getType=view&width=0&height=0"
+                alt="" width="100%">
+        </div>
+    </div>
+</div>
